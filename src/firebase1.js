@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore } from "firebase/firestore/lite";
+import { collection, getFirestore } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD-GnOBG9LeK4WTJsmtI34Hn7Tg2-5kVyc",
@@ -18,6 +18,9 @@ const db = getFirestore(firebaseApp);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const storage = getStorage(firebaseApp);
+const colMovie = collection(db, 'movies');
 
-export { auth, provider, storage };
+// getDocs(colMovie)
+
+export { auth, provider, storage, colMovie };
 export default db;
